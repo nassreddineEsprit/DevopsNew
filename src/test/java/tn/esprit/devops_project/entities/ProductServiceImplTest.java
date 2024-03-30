@@ -13,6 +13,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 @SpringBootTest
 @ActiveProfiles("test")
@@ -31,7 +32,7 @@ class ProductServiceImplTest {
 
     @Test
     public void testAddProduct() {
-        // Create products to add
+
         Product product1 = new Product();
         product1.setTitle("Test Product 1");
         product1.setPrice(10.0f);
@@ -50,12 +51,10 @@ class ProductServiceImplTest {
         product3.setQuantity(10);
         product3.setCategory(ProductCategory.BOOKS);
 
-        // Add the products
         Product addedProduct1 = productService.addProduct(product1, 1L);
         Product addedProduct2 = productService.addProduct(product2, 2L);
         Product addedProduct3 = productService.addProduct(product3, 3L);
 
-        // Check if the products are added successfully
         assertNotNull(addedProduct1);
         assertNotNull(addedProduct2);
         assertNotNull(addedProduct3);
@@ -76,7 +75,13 @@ class ProductServiceImplTest {
         assertNotNull(savedProduct);
         assertEquals(1L,1L);
     }
-
+    @Test
+    public void testDeleteProduct() {
+        Long productIdToDelete = 1L;
+        productService.deleteProduct(productIdToDelete);
+        Product deletedProduct = productService.retrieveProduct(productIdToDelete);
+        assertNull(deletedProduct);
+    }
 
 
 }
