@@ -8,7 +8,11 @@ import org.springframework.test.context.ActiveProfiles;
 import tn.esprit.devops_project.repositories.ProductRepository;
 import tn.esprit.devops_project.repositories.StockRepository;
 import tn.esprit.devops_project.services.Iservices.IProductService;
+
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 @ActiveProfiles("test")
@@ -40,5 +44,20 @@ class ProductServiceImplTest {
         // Vérifier si le produit est ajouté avec succès
         assertEquals("Test Product", addedProduct.getTitle());
     }
+
+    @Test
+    public void retrieveAllProducts(){
+        List<Product> products = productService.retreiveAllProduct();
+        assertNotNull(products);
+    }
+
+    @Test
+    public void retrieveProduct(){
+        Product savedProduct = productService.retrieveProduct(1L);
+        assertNotNull(savedProduct);
+        assertEquals(1L,1L);
+    }
+
+
 
 }
