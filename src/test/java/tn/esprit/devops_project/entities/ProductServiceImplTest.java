@@ -38,6 +38,18 @@ class ProductServiceImplTest {
         product.setQuantity(5);
         product.setCategory(ProductCategory.ELECTRONICS);
 
+        Product product1 = new Product();
+        product.setTitle("T-Shirt");
+        product.setPrice(90.0f);
+        product.setQuantity(50);
+        product.setCategory(ProductCategory.CLOTHING);
+
+        Product product2 = new Product();
+        product.setTitle("java");
+        product.setPrice(126);
+        product.setQuantity(10);
+        product.setCategory(ProductCategory.BOOKS);
+
         // Ajouter le produit
         Product addedProduct = productService.addProduct(product, 1L);
 
