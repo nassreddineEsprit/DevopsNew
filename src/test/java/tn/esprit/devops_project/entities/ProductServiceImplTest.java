@@ -70,10 +70,15 @@ class ProductServiceImplTest {
     }
 
     @Test
-    public void retrieveProductTest(){
-        Product savedProduct = productService.retrieveProduct(17L);
+    public void retrieveProductTest() {
+        // Assuming the product with ID 17 exists in the database
+        long expectedProductId = 17L;
+
+        Product savedProduct = productService.retrieveProduct(expectedProductId);
         assertNotNull(savedProduct);
-        assertEquals(17L,17L);
+
+        // Check that the retrieved product's ID matches the expected ID
+        assertEquals(expectedProductId, savedProduct.getIdProduct());
     }
 
     @Test
