@@ -52,9 +52,14 @@ class ProductServiceImplTest {
 
         // Ajouter le produit
         Product addedProduct = productService.addProduct(product, 1L);
+        Product addedProduct1 = productService.addProduct(product1, 2L);
+        Product addedProduct2 = productService.addProduct(product2, 3L);
 
         // Vérifier si le produit est ajouté avec succès
         assertEquals("Test Product", addedProduct.getTitle());
+        assertEquals("T-Shirt", addedProduct1.getTitle());
+        assertEquals("java", addedProduct2.getTitle());
+
     }
 
     @Test
