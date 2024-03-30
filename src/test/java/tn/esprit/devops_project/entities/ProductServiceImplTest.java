@@ -31,37 +31,39 @@ class ProductServiceImplTest {
 
     @Test
     public void testAddProduct() {
-        // Créer un produit à ajouter
-        Product product = new Product();
-        product.setTitle("Test Product");
-        product.setPrice(10.0f);
-        product.setQuantity(5);
-        product.setCategory(ProductCategory.ELECTRONICS);
+        // Create products to add
+        Product product1 = new Product();
+        product1.setTitle("Test Product 1");
+        product1.setPrice(10.0f);
+        product1.setQuantity(5);
+        product1.setCategory(ProductCategory.ELECTRONICS);
 
-//        Product product1 = new Product();
-//        product.setTitle("T-Shirt");
-//        product.setPrice(90.0f);
-//        product.setQuantity(50);
-//        product.setCategory(ProductCategory.CLOTHING);
-//
-//        Product product2 = new Product();
-//        product.setTitle("java");
-//        product.setPrice(126);
-//        product.setQuantity(10);
-//        product.setCategory(ProductCategory.BOOKS);
+        Product product2 = new Product();
+        product2.setTitle("Test Product 2");
+        product2.setPrice(20.0f);
+        product2.setQuantity(8);
+        product2.setCategory(ProductCategory.CLOTHING);
 
-        // Ajouter le produit
-        Product addedProduct = productService.addProduct(product, 1L);
-//        Product addedProduct1 = productService.addProduct(product1, 2L);
-//        Product addedProduct2 = productService.addProduct(product2, 3L);
+        Product product3 = new Product();
+        product3.setTitle("Test Product 3");
+        product3.setPrice(30.0f);
+        product3.setQuantity(10);
+        product3.setCategory(ProductCategory.BOOKS);
 
-        // Vérifier si le produit est ajouté avec succès
-        assertEquals("Test Product", addedProduct.getTitle());
-//        assertEquals("T-Shirt", addedProduct1.getTitle());
-//        assertEquals("java", addedProduct2.getTitle());
+        // Add the products
+        Product addedProduct1 = productService.addProduct(product1, 1L);
+        Product addedProduct2 = productService.addProduct(product2, 2L);
+        Product addedProduct3 = productService.addProduct(product3, 3L);
 
+        // Check if the products are added successfully
+        assertNotNull(addedProduct1);
+        assertNotNull(addedProduct2);
+        assertNotNull(addedProduct3);
+
+        assertEquals("Test Product 1", addedProduct1.getTitle());
+        assertEquals("Test Product 2", addedProduct2.getTitle());
+        assertEquals("Test Product 3", addedProduct3.getTitle());
     }
-
     @Test
     public void retrieveAllProducts(){
         List<Product> products = productService.retreiveAllProduct();
