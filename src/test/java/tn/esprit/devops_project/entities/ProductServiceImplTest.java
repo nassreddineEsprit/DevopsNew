@@ -31,7 +31,7 @@ class ProductServiceImplTest {
     private IProductService productService;
 
     @Test
-    public void testAddProduct() {
+    public void AddProductTest() {
 
         Product product1 = new Product();
         product1.setTitle("Test Product 1");
@@ -64,20 +64,20 @@ class ProductServiceImplTest {
         assertEquals("Test Product 3", addedProduct3.getTitle());
     }
     @Test
-    public void retrieveAllProducts(){
+    public void retrieveAllProductsTest(){
         List<Product> products = productService.retreiveAllProduct();
         assertNotNull(products);
     }
 
     @Test
-    public void retrieveProduct(){
-        Product savedProduct = productService.retrieveProduct(1L);
+    public void retrieveProductTest(){
+        Product savedProduct = productService.retrieveProduct(17L);
         assertNotNull(savedProduct);
-        assertEquals(1L,1L);
+        assertEquals(17L,17L);
     }
     @Test
     public void testDeleteProduct() {
-        Long productId = 2L;
+        Long productId = 5L;
         productService.deleteProduct(productId);
         Product deletedProduct = productService.retrieveProduct(productId);
         assertNull(deletedProduct);
