@@ -77,9 +77,9 @@ class ProductServiceImplTest {
     }
     @Test
     public void testDeleteProduct() {
-        Long productIdToDelete = 1L;
-        productService.deleteProduct(productIdToDelete);
-        Product deletedProduct = productService.retrieveProduct(productIdToDelete);
+        Long productId = 2L;
+        productService.deleteProduct(productId);
+        Product deletedProduct = productService.retrieveProduct(productId);
         assertNull(deletedProduct);
     }
 
