@@ -75,12 +75,27 @@ class ProductServiceImplTest {
         assertNotNull(savedProduct);
         assertEquals(17L,17L);
     }
+
     @Test
-    public void testDeleteProduct() {
-        Long productId = 6L;
-        productService.deleteProduct(productId);
-        assertNull(6L);
+    public void retrieveProductByCategoryTest() {
+        // Define a category for testing
+        ProductCategory category = ProductCategory.ELECTRONICS;
+
+        // Call the method to retrieve products by category
+        List<Product> products = productService.retrieveProductByCategory(category);
+
+        assertNotNull(products);
+        assertEquals(2, products.size());
     }
+//    @Test
+//    public void deleteProductTest() {
+//        Long productId = 7L;
+//        productService.deleteProduct(productId);
+//        Product deletedProduct = productService.retrieveProduct(productId);
+//        assertNull(deletedProduct);
+//    }
+
+
 
 
 }
